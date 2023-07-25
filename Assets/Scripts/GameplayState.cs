@@ -15,7 +15,6 @@ public class GameplayState : MonoBehaviour
     {
         SeScoreText(_score);
         ShuffleCards();
-        SetCardTypes();
     }
 
     private void ShuffleCards()
@@ -30,6 +29,7 @@ public class GameplayState : MonoBehaviour
             _cardTypes[j] = _cardTypes[i];
             _cardTypes[i] = temp;
         }
+        SetCardTypes();
     }
 
     private void SetCardTypes()
@@ -41,4 +41,13 @@ public class GameplayState : MonoBehaviour
     }
 
     private void SeScoreText(int score) => _scoreText.text = $"—чет: {score}";
+
+    public void OnRestardClicked() 
+    {
+        foreach (var card in _cards)
+        {
+            card.SetDefaultImage();
+        }
+        ShuffleCards();
+    }
 }

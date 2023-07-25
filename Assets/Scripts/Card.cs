@@ -19,4 +19,6 @@ public class Card : MonoBehaviour
         else 
             _cardImage.sprite = _card;
     }
+
+    public void SetDefaultImage() => _cardImage.sprite = _card;
 }
