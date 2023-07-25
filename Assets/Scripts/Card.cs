@@ -6,7 +6,8 @@ public class Card : MonoBehaviour
     [SerializeField] private Sprite[] _cardContent;
     [SerializeField] private Sprite _card; 
 
-    private int _cardType = 1;
+    public int CardType { get; set; }
+    
     private Image _cardImage;
 
     private void Start() => _cardImage = GetComponent<Image>();
@@ -14,7 +15,7 @@ public class Card : MonoBehaviour
     public void OnClick() 
     {
         if(_cardImage.sprite.Equals(_card)) 
-            _cardImage.sprite = _cardContent[_cardType];
+            _cardImage.sprite = _cardContent[CardType];
         else 
             _cardImage.sprite = _card;
     }
